@@ -1,0 +1,61 @@
+filetype plugin on
+
+set path+=/home/dmani/Nuro/**
+set wildmenu
+
+set tabstop=2
+set expandtab
+set shiftwidth=2
+set smartindent
+
+set laststatus=2
+set ruler
+
+syntax on
+set nu
+
+set hlsearch
+set incsearch
+set ignorecase
+
+
+hi DiffAdd      ctermfg=NONE          ctermbg=Yellow
+hi DiffChange   ctermfg=NONE          ctermbg=NONE
+hi DiffDelete   ctermfg=LightBlue     ctermbg=Red
+hi DiffText     ctermfg=Yellow        ctermbg=Red
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
+set mouse=i
+
+set rtp+=~/.fzf
+map ; :FZF<CR>    
+
+augroup  BgHighlight
+  autocmd!
+  autocmd WinEnter * set cul
+  autocmd WinLeave * set nocul
+augroup END
+
+if has("clipboard")
+ set clipboard=unnamed " copy to the system clipboard
+
+ if has("unnamedplus") " X11 support
+   set clipboard+=unnamedplus
+ endif
+endif
+
+" go to tab by number
+ noremap <leader>1 1gt
+ noremap <leader>2 2gt
+ noremap <leader>3 3gt
+ noremap <leader>4 4gt
+ noremap <leader>5 5gt
+ noremap <leader>6 6gt
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
